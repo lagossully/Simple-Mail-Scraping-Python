@@ -13,6 +13,9 @@ imap = imaplib.IMAP4_SSL(host)
 f = open("InfoSensible.txt", "r")#txt que contiene mi contraseña
 Contraseña = f.read()
 
+imap.login('lagosdiego97@gmail.com', Contraseña)
+imap.select('Inbox')
+
 g = open("msgidcorreo1wom.txt","w")
 h = open("msgidcorreo2falabella.txt","w")
 i = open("msgidcorreo3reddit.txt","w")
@@ -47,8 +50,6 @@ escribir5 = [aa,bb,cc,dd,ee]
 
 correos = ['info@news.wom.cl','novedades@cl.falabella.com','noreply@redditmail.com','needle@needle.cl','contacto@beersquare.com']
 
-imap.login('lagosdiego97@gmail.com', Contraseña)
-imap.select('Inbox')
 
 def obtenermsgid(texto,emisor):
     typ, data = imap.search(None,'FROM', emisor)
